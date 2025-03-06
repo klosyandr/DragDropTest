@@ -40,6 +40,12 @@ public class InputController : MonoBehaviour
     private void OnPress(InputAction.CallbackContext context)
     {
         OnPressOut();
+        if (Touchscreen.current != null)
+        {
+            //костыль для неправильной обработки событий
+            //если нажатие сработало раньше, чем обновление позиции касания
+            _currentPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+        }
         var ray = Camera.main.ScreenToWorldPoint(_currentPosition);
         RaycastHit2D[] hits = Physics2D.RaycastAll(ray, Vector2.zero);
 

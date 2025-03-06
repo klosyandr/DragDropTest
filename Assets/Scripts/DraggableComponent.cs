@@ -29,7 +29,7 @@ public class DraggableComponent : MonoBehaviour
     }
 
     private void Update()
-    {        
+    {
         if (_isDragging)
         {
             //два варианта следования за курсором - более плавный и следующий четко за текущей позицией
